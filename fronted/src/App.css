@@ -1,0 +1,65 @@
+.App {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Estilos para el contenido principal después del navbar */
+.main-content {
+  padding-top: 90px; /* Espacio reducido para el navbar fijo */
+  min-height: calc(100vh - 80px); /* Altura mínima considerando el navbar */
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* Estilos para el navbar */
+.navbar-custom {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e9ecef;
+  background: #212529 !important; /* Color negro original */
+  padding: 0.5rem 0;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #17a2b8 !important;
+  transform: translateY(-1px);
+}
+
+.navbar-custom .navbar-brand {
+  transition: transform 0.2s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para las alertas */
+.alert-info {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+}
+
+/* Estilos para las transiciones de página */
+.page-transition {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
