@@ -33,9 +33,9 @@ En la raíz de su proyecto, abra una terminal y ejecute el siguiente comando par
 
 Este comando descargará todas las bibliotecas y dependencias requeridas para el correcto funcionamiento del proyecto, como:  
 
-- ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
-- ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)  
-- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white)  
+- [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://react.dev/)
+- [![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com/)
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
 ---
 
