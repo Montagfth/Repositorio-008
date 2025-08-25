@@ -33,9 +33,9 @@ En la raíz de su proyecto, abra una terminal y ejecute el siguiente comando par
 
 Este comando descargará todas las bibliotecas y dependencias requeridas para el correcto funcionamiento del proyecto, como:  
 
-- <img src="https://www.svgrepo.com/show/439290/react.svg" alt="React" width="20"/> **React**  
-- <img src="https://www.svgrepo.com/show/354262/react-router.svg" alt="React Router" width="20"/> **React Router**  
-- <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap" width="20"/> **Bootstrap**  
+- ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+- ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)  
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white)  
 
 ---
 
