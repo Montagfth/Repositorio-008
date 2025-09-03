@@ -1,4 +1,4 @@
-# Proyecto Stale Saturn | Marcos de Desarrollo Web  
+# Proyecto "spotify" Peeps | Marcos de Desarrollo Web  
 ###### Programador(es): Loyola Ismael · Figueroa Luis · Montañez Fabrizio · Quispe Angelo · Molina Brigitte  
 Archivo **README.md** para la documentación del proyecto.  
 ---
