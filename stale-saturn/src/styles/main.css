@@ -1,26 +1,25 @@
 /* Variables de color para Peeps */
 :root {
-    --primary-color: #3b82f6;
-    --primary-dark: #2563eb;
-    --secondary-color: #8b5cf6;
-    --dark-bg: #000000;
-    --dark-bg-secondary: #000000;
-    --text-light: #ffffff;
-    --text-muted: #a1a1aa;
-    --text-secondary: #d1d5db;
-    --border-color: rgba(59, 130, 246, 0.2);
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --card-border: rgba(255, 255, 255, 0.1);
+    --negro-espacial: #0D0D0D;
+    --blanco: #FDFDFD;
+    --gris-oscuro: #1A1A1A;
+    
+    /* Variables derivadas */
+    --primary-color: var(--blanco);
+    --primary-dark: #FDFDFD;
+    --secondary-color: var(--blanco);
+    --dark-bg: var(--negro-espacial);
+    --dark-bg-secondary: var(--gris-oscuro);
+    --text-light: var(--blanco);
+    --text-muted: #FDFDFD;
+    --text-secondary: #FDFDFD;
+    --border-color: rgba(253, 253, 253, 0.3);
+    --card-bg: rgba(26, 26, 26, 0.8);
+    --card-border: rgba(253, 253, 253, 0.2);
     --sidebar-width: 240px;
+    --accent-color: var(--blanco);
 }
 
-/* Estilo para simular Sequel 100 Black Font */
-@font-face {
-    font-family: 'Sequel100Black';
-    src: local('Arial Black'), local('Helvetica Neue'), local('Helvetica');
-    font-weight: 900;
-    font-style: normal;
-}
 
 * {
     margin: 0;
@@ -73,7 +72,7 @@ body {
 .brand-text {
     font-family: 'Anton', sans-serif;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-light);
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -127,7 +126,7 @@ body {
 }
 
 .nav-item span {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* Contenido principal */
@@ -161,12 +160,12 @@ body {
 /* Botones personalizados */
 .btn-custom-outline {
     background: transparent;
-    border: 2px solid var(--text-light);
-    color: var(--text-light);
+    border: 2px solid var(--blanco);
+    color: var(--blanco);
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-family: 'Sequel100Black', 'Arial Black', sans-serif;
-    font-weight: 900;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -176,22 +175,24 @@ body {
     gap: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(253, 253, 253, 0.1);
 }
 
 .btn-custom-outline:hover {
-    background: var(--text-light);
-    color: var(--dark-bg);
+    background: var(--blanco);
+    color: var(--negro-espacial);
     transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(253, 253, 253, 0.3);
 }
 
 .btn-custom-primary {
-    background: var(--primary-color);
-    color: var(--text-light);
-    border: 2px solid var(--primary-color);
+    background: var(--blanco);
+    color: var(--negro-espacial);
+    border: 2px solid var(--blanco);
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-family: 'Sequel100Black', 'Arial Black', sans-serif;
-    font-weight: 900;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -201,13 +202,15 @@ body {
     gap: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 0 15px rgba(253, 253, 253, 0.2);
 }
 
 .btn-custom-primary:hover {
-    background: var(--primary-dark);
-    border-color: var(--primary-dark);
-    color: var(--text-light);
+    background: transparent;
+    border-color: var(--blanco);
+    color: var(--blanco);
     transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(253, 253, 253, 0.4);
 }
 
 /* Contenido de la página */
@@ -221,23 +224,21 @@ body {
 /* Hero section */
 .hero-title {
     font-family: 'Anton', sans-serif;
-    font-size: 4rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
     margin-top: 0;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--blanco);
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(253, 253, 253, 0.3);
 }
 
 .hero-subtitle {
     font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--text-muted);
     margin-bottom: 4rem;
     max-width: 600px;
@@ -249,8 +250,8 @@ body {
 
 /* Caja informativa */
 .info-box {
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 16px;
     padding: 2.5rem;
     margin-bottom: 4rem;
@@ -259,13 +260,13 @@ body {
     margin-right: auto;
     text-align: center;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .info-title {
     font-family: 'Anton', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     color: var(--primary-color);
     text-align: center;
@@ -277,11 +278,13 @@ body {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .info-highlight {
     color: var(--primary-color);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* Tarjetas */
@@ -301,27 +304,29 @@ body {
 
 .card-custom:hover {
     transform: translateY(-5px);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+    border-color: var(--blanco);
+    box-shadow: 0 20px 40px rgba(253, 253, 253, 0.1);
 }
 
 .card-icon {
     width: 64px;
     height: 64px;
-    background: var(--primary-color);
+    background: var(--blanco);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
     font-size: 1.5rem;
-    color: var(--text-light);
+    color: var(--negro-espacial);
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(253, 253, 253, 0.2);
 }
 
 .card-title {
     font-family: 'Anton', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     color: var(--text-light);
     text-align: center;
@@ -335,7 +340,8 @@ body {
     margin-bottom: 2rem;
     line-height: 1.6;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
     letter-spacing: 0.3px;
 }
 
@@ -364,7 +370,50 @@ body {
     }
 }
 
+@media (min-width: 769px) {
+    /* Ocultar menú hamburguesa en pantallas grandes */
+    .hamburger-menu {
+        display: none !important;
+    }
+    
+    /* Ocultar sidebar móvil en pantallas grandes */
+    .sidebar-mobile {
+        display: none !important;
+    }
+    
+    /* Ocultar overlay en pantallas grandes */
+    .mobile-overlay {
+        display: none !important;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Ocultar sidebar en móviles */
+    .sidebar {
+        display: none !important;
+    }
+    
+    /* Mostrar menú hamburguesa */
+    .hamburger-menu {
+        display: block !important;
+    }
+    
+    /* Mostrar overlay cuando el menú esté activo */
+    .mobile-overlay.active {
+        display: block;
+    }
+    
+    /* Sidebar móvil oculto por defecto */
+    .sidebar-mobile {
+        left: -100% !important;
+        display: block !important;
+    }
+    
+    /* Mostrar sidebar móvil cuando esté activo */
+    .sidebar-mobile.active {
+        left: 0 !important;
+    }
+    
     .top-header {
         padding: 1rem;
     }
@@ -391,6 +440,7 @@ body {
         font-size: 0.9rem;
     }
 }
+
 
 /* Efectos de hover adicionales */
 .nav-item:hover {
@@ -426,7 +476,7 @@ body {
 .modal-title {
     font-family: 'Anton', sans-serif;
     color: var(--primary-color);
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -565,4 +615,151 @@ body {
 
 .terminos-content::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
+}
+
+/* Menú hamburguesa para responsive */
+.hamburger-menu {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2000;
+    background: var(--gris-oscuro);
+    border: 2px solid var(--blanco);
+    border-radius: 10px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(253, 253, 253, 0.2);
+}
+
+/* El menú hamburguesa se muestra solo en móviles */
+
+.hamburger-menu:hover {
+    background: var(--blanco);
+    box-shadow: 0 0 25px rgba(253, 253, 253, 0.3);
+}
+
+.hamburger-menu:hover .hamburger-line {
+    background: var(--negro-espacial);
+}
+
+.hamburger-line {
+    width: 22px;
+    height: 3px;
+    background: var(--blanco);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Sin animación de X - mantener siempre las 3 líneas */
+
+/* Overlay para móvil */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 13, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1500;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+}
+
+/* Sidebar móvil */
+.sidebar-mobile {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--negro-espacial);
+    border-right: 1px solid rgba(253, 253, 253, 0.2);
+    z-index: 1600;
+    transition: left 0.2s ease;
+    overflow-y: auto;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar-mobile.active {
+    left: 0;
+}
+
+.sidebar-mobile-header {
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(253, 253, 253, 0.1);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-mobile-header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar-mobile-header .brand-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--blanco);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.sidebar-mobile-nav {
+    padding: 0 1.5rem 2rem;
+}
+
+.sidebar-mobile-nav .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 0.75rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    justify-content: flex-start;
+}
+
+.sidebar-mobile-nav .nav-item:hover {
+    color: var(--blanco);
+    background: rgba(253, 253, 253, 0.08);
+    border-color: rgba(253, 253, 253, 0.3);
+    transform: translateX(5px);
+}
+
+.sidebar-mobile-nav .nav-item.active {
+    color: var(--blanco);
+    background: rgba(253, 253, 253, 0.12);
+    border-color: rgba(253, 253, 253, 0.4);
+    font-weight: 600;
+    transform: translateX(3px);
+}
+
+.sidebar-mobile-nav .nav-item i {
+    font-size: 1.3rem;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sidebar-mobile-nav .nav-item span {
+    font-weight: 600;
+    font-size: 1rem;
 }
