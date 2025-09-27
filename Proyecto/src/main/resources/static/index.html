@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peeps - Radio Felicidad 88.9 FM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Anton&display=swap" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="sidebar-mobile" id="sidebarMobile">
+        <div class="sidebar-mobile-header">
+            <div class="logo-container">
+                <img src="/images/peeps-logo.jpg" alt="Peeps Logo" class="logo-image">
+                <span class="brand-text">Peeps</span>
+            </div>
+        </div>
+        
+        <div class="sidebar-mobile-nav">
+            <div class="nav-section">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <img src="/images/peeps-logo.jpg" alt="Peeps Logo" class="logo-image">
+                <span class="brand-text">Peeps</span>
+            </div>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="nav-section">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-right">
+                <button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="fas fa-user"></i> Iniciar Sesión
+                </button>
+                <button class="btn-custom-primary" data-bs-toggle="modal" data-bs-target="#registroModal">
+                    <i class="fas fa-plus"></i> Registrarse
+                </button>
+            </div>
+        </header>
+        <div class="page-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h1 class="hero-title">
+                            Bienvenido a Peeps
+                        </h1>
+                        <p class="hero-subtitle">
+                            Radio felicidad 88.9 FM
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="info-box">
+                            <h2 class="info-title">¿Eres nuevo en Peeps?</h2>
+                            <p class="info-text">
+                                Regístrate para comenzar a escuchar tus canciones favoritas
+                            </p>
+                            <p class="info-highlight">¡Únete a nuestra comunidad!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card-custom">
+                            <div class="card-icon">+</div>
+                            <h3 class="card-title">Regístrate</h3>
+                            <p class="card-description">
+                                Crea tu cuenta y comienza a explorar Peeps
+                            </p>
+                            <a href="#" class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#registroModal">
+                                + Crear Cuenta
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card-custom">
+                            <div class="card-icon">→</div>
+                            <h3 class="card-title">Inicia Sesión</h3>
+                            <p class="card-description">
+                                Accede a tu cuenta existente
+                            </p>
+                            <a href="#" class="btn btn-custom-outline" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                → Iniciar Sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registroModalLabel">Registrarse en Peeps</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registroForm">
+                        <div class="mb-3">
+                            <label for="nombreRegistro" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombreRegistro" name="nombre" required>
+                            <div class="invalid-feedback">
+                                Por favor ingresa tu nombre completo.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailRegistro" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="emailRegistro" name="email" required>
+                            <div class="invalid-feedback">
+                                Por favor ingresa un correo electrónico válido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordRegistro" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="passwordRegistro" name="password" required minlength="6">
+                            <div class="invalid-feedback">
+                                La contraseña debe tener al menos 6 caracteres.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPasswordRegistro" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="confirmPasswordRegistro" required>
+                            <div class="invalid-feedback">
+                                Las contraseñas no coinciden.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terminosRegistro" required>
+                            <label class="form-check-label" for="terminosRegistro">
+                                Acepto los <a href="#" class="text-primary" onclick="PeepsApp.showTerminosModal()">términos y condiciones</a>
+                            </label>
+                            <div class="invalid-feedback">
+                                Debes aceptar los términos y condiciones.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="PeepsApp.handleRegistroSubmit()">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="emailLogin" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="emailLogin" name="email" required>
+                            <div class="invalid-feedback">
+                                Por favor ingresa un correo electrónico válido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordLogin" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="passwordLogin" name="password" required>
+                            <div class="invalid-feedback">
+                                Por favor ingresa tu contraseña.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="recordarLogin" name="recordar">
+                            <label class="form-check-label" for="recordarLogin">
+                                Recordar mi sesión
+                            </label>
+                        </div>
+                        <div class="text-end">
+                            <a href="#" class="text-primary text-decoration-none" onclick="PeepsApp.showRecuperarPasswordModal()">¿Olvidaste tu contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="PeepsApp.handleLoginSubmit()">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div class="modal fade" id="terminosModal" tabindex="-1" aria-labelledby="terminosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="terminosModalLabel">Términos y Condiciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="terminos-content">
+                        <h6 class="mb-3">Términos y Condiciones de Uso de Peeps</h6>
+                        
+                        <h6 class="text-primary mb-2">1. Aceptación de los Términos</h6>
+                        <p class="mb-3">Al registrarte y usar Peeps, aceptas estar sujeto a estos términos y condiciones de uso.</p>
+                        
+                        <h6 class="text-primary mb-2">2. Uso del Servicio</h6>
+                        <p class="mb-3">Peeps es una plataforma de música diseñada para conectar amigos y compartir momentos especiales. Te comprometes a usar el servicio de manera responsable y respetuosa.</p>
+                        
+                        <h6 class="text-primary mb-2">3. Privacidad</h6>
+                        <p class="mb-3">Tu privacidad es importante para nosotros. Recopilamos y procesamos tu información personal de acuerdo con nuestra Política de Privacidad.</p>
+                        
+                        <h6 class="text-primary mb-2">4. Contenido del Usuario</h6>
+                        <p class="mb-3">Eres responsable del contenido que compartes en la plataforma. No debes publicar contenido que sea ilegal, ofensivo o viole los derechos de otros.</p>
+                        
+                        <h6 class="text-primary mb-2">5. Cuenta de Usuario</h6>
+                        <p class="mb-3">Eres responsable de mantener la confidencialidad de tu cuenta y contraseña. Notifica inmediatamente cualquier uso no autorizado.</p>
+                        
+                        <h6 class="text-primary mb-2">6. Modificaciones</h6>
+                        <p class="mb-3">Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios serán notificados a través de la plataforma.</p>
+                        
+                        <h6 class="text-primary mb-2">7. Terminación</h6>
+                        <p class="mb-3">Podemos suspender o terminar tu cuenta si violas estos términos o por cualquier otra razón a nuestra discreción.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Recuperar Contraseña -->
+    <div class="modal fade" id="recuperarPasswordModal" tabindex="-1" aria-labelledby="recuperarPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recuperarPasswordModalLabel">Recuperar Contraseña</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-light mb-3">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+                    <form id="recuperarPasswordForm">
+                        <div class="mb-3">
+                            <label for="emailRecuperar" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="emailRecuperar" required>
+                            <div class="invalid-feedback">
+                                Por favor ingresa un correo electrónico válido.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="PeepsApp.handleRecuperarPasswordSubmit()">Enviar Enlace</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
