@@ -223,6 +223,13 @@ async function handleRegistroSubmit() {
                 
                 setTimeout(() => {
                     actualizarInterfazUsuario(data.usuario);
+
+                    //ranking de canciones 
+                    const welcomeSection = document.getElementById("welcomeSection");
+                    const rankingSection = document.getElementById("rankingSection");
+
+                    if (welcomeSection) welcomeSection.classList.add("d-none");
+                    if (rankingSection) rankingSection.classList.remove("d-none");
                 }, 1000);
                 
             } else {
@@ -281,8 +288,16 @@ async function handleLoginSubmit() {
                 fields.forEach(field => {
                     field.classList.remove('is-valid', 'is-invalid');
                 });
+
                                 setTimeout(() => {
                     actualizarInterfazUsuario(data.usuario);
+
+                    //ranking de canciones 
+                    const welcomeSection = document.getElementById("welcomeSection");
+                    const rankingSection = document.getElementById("rankingSection");
+
+                    if (welcomeSection) welcomeSection.classList.add("d-none");
+                    if (rankingSection) rankingSection.classList.remove("d-none");
                 }, 1000);
                 
             } else {
@@ -380,7 +395,7 @@ function showNotification(message, type = 'info') {
     document.body.appendChild(notification);
     activeNotification = notification;
     
-   
+
     const closeBtn = notification.querySelector('.btn-close');
     closeBtn.addEventListener('click', () => {
         notification.remove();
@@ -467,6 +482,13 @@ function cerrarSesion() {
 
     setTimeout(() => {
         restaurarInterfazOriginal();
+
+        //ranking de canciones 
+        const welcomeSection = document.getElementById("welcomeSection");
+        const rankingSection = document.getElementById("rankingSection");
+
+        if (welcomeSection) welcomeSection.classList.remove("d-none");
+        if (rankingSection) rankingSection.classList.add("d-none");
     }, 1000);
 }
 
@@ -496,7 +518,7 @@ function restaurarInterfazOriginal() {
         `;
     }
     
- 
+
     const cards = document.querySelectorAll('.card-custom');
     cards.forEach(card => {
         card.style.display = 'block';
@@ -514,3 +536,42 @@ window.PeepsApp = {
     actualizarInterfazUsuario,
     restaurarInterfazOriginal
 };
+
+//Reproductor de música
+function playSong(title, artist, src, cover) {
+    const playerBar = document.getElementById("playerBar");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const playerTitle = document.getElementById("playerTitle");
+    const playerArtist = document.getElementById("playerArtist");
+    const playerCover = document.getElementById("playerCover");
+
+    playerTitle.textContent = title;
+    playerArtist.textContent = artist;
+    playerCover.src = cover;
+    audioPlayer.src = src;
+
+    playerBar.classList.remove("d-none");
+    audioPlayer.play();
+}
+
+//Para la lista
+document.querySelectorAll('.song-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const title = item.getAttribute('data-title');
+        const artist = item.getAttribute('data-artist');
+        const src = item.getAttribute('data-src');
+        const cover = item.getAttribute('data-cover');
+        playSong(title, artist, src, cover);
+    });
+});
+
+//Para el ranking
+document.querySelectorAll('.ranking-song').forEach(item => {
+    item.addEventListener('click', () => {
+        const title = item.getAttribute('data-title');
+        const artist = item.getAttribute('data-artist');
+        const src = item.getAttribute('data-src');
+        const cover = item.getAttribute('data-cover');
+        playSong(title, artist, src, cover);
+    });
+});
