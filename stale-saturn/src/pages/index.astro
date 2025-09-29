@@ -9,32 +9,31 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Anton&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="/src/styles/main.css">
-		<style>
-			@keyframes slideIn {
-				from {
-					transform: translateX(100%);
-					opacity: 0;
-				}
-				to {
-					transform: translateX(0);
-					opacity: 1;
-				}
-			}
-			
-			@keyframes slideOut {
-				from {
-					transform: translateX(0);
-					opacity: 1;
-				}
-				to {
-					transform: translateX(100%);
-					opacity: 0;
-				}
-			}
-		</style>
 	</head>
 	<body>
-		<!-- Barra lateral de navegación -->
+		<div class="hamburger-menu" id="hamburgerMenu">
+			<div class="hamburger-line"></div>
+			<div class="hamburger-line"></div>
+			<div class="hamburger-line"></div>
+		</div>
+		<div class="mobile-overlay" id="mobileOverlay"></div>
+		<nav class="sidebar-mobile" id="sidebarMobile">
+			<div class="sidebar-mobile-header">
+				<div class="logo-container">
+					<img src="/images/peeps-logo.jpg" alt="Peeps Logo" class="logo-image">
+					<span class="brand-text">Peeps</span>
+				</div>
+			</div>
+			
+			<div class="sidebar-mobile-nav">
+				<div class="nav-section">
+					<a href="#" class="nav-item active">
+						<i class="fas fa-home"></i>
+						<span>Inicio</span>
+					</a>
+				</div>
+			</div>
+		</nav>
 		<nav class="sidebar">
 			<div class="sidebar-header">
 				<div class="logo-container">
@@ -52,10 +51,7 @@
 				</div>
 			</div>
 		</nav>
-
-		<!-- Contenido principal -->
 		<main class="main-content">
-			<!-- Header superior -->
 			<header class="top-header">
 				<div class="header-right">
 					<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -66,8 +62,6 @@
 					</button>
 				</div>
 			</header>
-
-			<!-- Contenido de la página -->
 			<div class="page-content">
 				<div class="container">
 					<div class="row justify-content-center">
@@ -76,7 +70,7 @@
 								Bienvenido a Peeps
 							</h1>
 							<p class="hero-subtitle">
-								Tu red social para conectar con amigos y compartir momentos especiales
+								Radio felicidad 88.9 FM
 							</p>
 						</div>
 					</div>
@@ -85,7 +79,7 @@
 							<div class="info-box">
 								<h2 class="info-title">¿Eres nuevo en Peeps?</h2>
 								<p class="info-text">
-									Regístrate para comenzar a usar todas las funcionalidades de la plataforma
+									Regístrate para comenzar a escuchar tus canciones favoritas
 								</p>
 								<p class="info-highlight">¡Únete a nuestra comunidad!</p>
 							</div>
@@ -121,8 +115,6 @@
 				</div>
 			</div>
 		</main>
-
-		<!-- Modal de Registro -->
 		<div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -178,8 +170,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Modal de Inicio de Sesión -->
 		<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -221,8 +211,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Modal de Términos y Condiciones -->
 		<div class="modal fade" id="terminosModal" tabindex="-1" aria-labelledby="terminosModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-lg">
 				<div class="modal-content">

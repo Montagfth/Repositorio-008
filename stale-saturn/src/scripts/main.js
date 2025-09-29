@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePeepsApp();
     setupFormValidations();
     setupCardHoverEffects();
+    setupMobileMenu();
 });
 
 function initializePeepsApp() {
-    console.log('👥 Peeps iniciado');
     setupSidebarNavigation();
 }
 function setupSidebarNavigation() {
@@ -18,7 +18,6 @@ function setupSidebarNavigation() {
             navItems.forEach(nav => nav.classList.remove('active'));
             this.classList.add('active');
             const section = this.querySelector('span').textContent;
-            console.log(`Navegando a: ${section}`);
             showNotification(`Navegando a ${section}`, 'info');
         });
     });
@@ -189,7 +188,6 @@ function handleRegistroSubmit() {
             password: document.getElementById('passwordRegistro').value
         };
         
-        console.log('Datos de registro:', formData);
         
         showNotification('👥 ¡Registro exitoso! Bienvenido a Peeps', 'success');
 
@@ -227,7 +225,6 @@ function handleLoginSubmit() {
             recordar: document.getElementById('recordarLogin').checked
         };
         
-        console.log('Datos de login:', formData);
         
         // Mostrar mensaje de éxito
         showNotification('👥 ¡Inicio de sesión exitoso!', 'success');
@@ -248,12 +245,9 @@ function handleLoginSubmit() {
 
 // Función para mostrar notificaciones
 function showNotification(message, type = 'info') {
-    // Crear elemento de notificación
     const notification = document.createElement('div');
-    notification.className = `alert alert-${type} notification`;
+    notification.className = `alert alert-${type}`;
     notification.textContent = message;
-    
-    // Estilos para la notificación
     notification.style.cssText = `
         position: fixed;
         top: 100px;
@@ -263,22 +257,15 @@ function showNotification(message, type = 'info') {
         border-radius: 8px;
         color: white;
         font-weight: 500;
-        animation: slideIn 0.3s ease-out;
         max-width: 400px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     `;
     
-    // Agregar al DOM
     document.body.appendChild(notification);
     
-    // Remover después de 4 segundos
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => {
-            if (document.body.contains(notification)) {
-                document.body.removeChild(notification);
-            }
-        }, 300);
+        if (document.body.contains(notification)) {
+            document.body.removeChild(notification);
+        }
     }, 4000);
 }
 
@@ -354,7 +341,6 @@ function handleRecuperarPasswordSubmit() {
     }
     
     // Simular envío
-    console.log('Solicitud de recuperación para:', email);
     
     // Mostrar mensaje de éxito
     showNotification('Se ha enviado un enlace de recuperación a tu correo electrónico', 'success');
@@ -365,6 +351,89 @@ function handleRecuperarPasswordSubmit() {
     
     // Limpiar formulario
     document.getElementById('emailRecuperar').value = '';
+}
+
+// Función para configurar el menú móvil
+function setupMobileMenu() {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const sidebarMobile = document.getElementById('sidebarMobile');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    if (!hamburgerMenu || !sidebarMobile || !mobileOverlay) {
+        return;
+    }
+    
+    // Asegurar estado inicial correcto
+    sidebarMobile.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    mobileOverlay.style.display = 'none';
+    hamburgerMenu.style.display = 'block';
+    
+    // Abrir/cerrar menú móvil con el botón hamburguesa
+    hamburgerMenu.addEventListener('click', function() {
+        if (sidebarMobile.classList.contains('active')) {
+            toggleMobileMenu(false);
+        } else {
+            toggleMobileMenu(true);
+        }
+    });
+    
+    // Cerrar menú móvil con overlay
+    mobileOverlay.addEventListener('click', function() {
+        toggleMobileMenu(false);
+    });
+    
+    // Cerrar menú móvil con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebarMobile.classList.contains('active')) {
+            toggleMobileMenu(false);
+        }
+    });
+    
+    // Configurar navegación móvil
+    const mobileNavItems = sidebarMobile.querySelectorAll('.nav-item');
+    mobileNavItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileNavItems.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Cerrar menú inmediatamente después de navegar
+            toggleMobileMenu(false);
+        });
+    });
+    
+    // Cerrar menú cuando se redimensiona la ventana
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            toggleMobileMenu(false);
+        }
+    });
+}
+
+// Función para alternar el menú móvil
+function toggleMobileMenu(isOpen) {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const sidebarMobile = document.getElementById('sidebarMobile');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    if (!hamburgerMenu || !sidebarMobile || !mobileOverlay) {
+        return;
+    }
+    
+    if (isOpen) {
+        sidebarMobile.classList.add('active');
+        mobileOverlay.classList.add('active');
+        mobileOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        hamburgerMenu.style.display = 'none';
+    } else {
+        sidebarMobile.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        mobileOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+        hamburgerMenu.style.display = 'block';
+    }
 }
 
 // Exportar funciones para uso global
@@ -378,5 +447,6 @@ window.PeepsApp = {
     hideFieldError,
     showTerminosModal,
     showRecuperarPasswordModal,
-    handleRecuperarPasswordSubmit
+    handleRecuperarPasswordSubmit,
+    toggleMobileMenu
 };
