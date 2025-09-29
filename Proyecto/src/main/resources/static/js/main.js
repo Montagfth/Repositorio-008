@@ -396,7 +396,7 @@ function showNotification(message, type = 'info') {
     activeNotification = notification;
 
 
-    
+
 
     const closeBtn = notification.querySelector('.btn-close');
     closeBtn.addEventListener('click', () => {
@@ -605,30 +605,30 @@ document.querySelectorAll('.ranking-song').forEach(item => {
 
 // Simple toggle para sidebar móvil y overlay
 document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.getElementById('hamburgerMenu');
-  const sidebarMobile = document.getElementById('sidebarMobile');
-  const overlay = document.getElementById('mobileOverlay');
+    const hamburger = document.getElementById('hamburgerMenu');
+    const sidebarMobile = document.getElementById('sidebarMobile');
+    const overlay = document.getElementById('mobileOverlay');
 
-  function openMobile() {
-    sidebarMobile.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobile() {
-    sidebarMobile.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+    function openMobile() {
+        sidebarMobile.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobile() {
+        sidebarMobile.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
 
-  hamburger?.addEventListener('click', () => {
-    if (sidebarMobile.classList.contains('open')) closeMobile();
-    else openMobile();
-  });
+    hamburger?.addEventListener('click', () => {
+        if (sidebarMobile.classList.contains('open')) closeMobile();
+        else openMobile();
+    });
 
-  overlay?.addEventListener('click', closeMobile);
+    overlay?.addEventListener('click', closeMobile);
 
-  // cerrar al cambiar tamaño 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 991.98) closeMobile();
-  });
+    // cerrar al cambiar tamaño 
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 991.98) closeMobile();
+    });
 });
