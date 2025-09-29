@@ -777,177 +777,176 @@ body {
     max-width: 300px;
 }
 
-.ranking-canciones {
-    border-radius: 12px;
-    overflow: hidden;
-    background: #181818;
-    color: #fff;
+body, html {
+  height: 100%;
 }
 
-.ranking-item h5,
-.ranking-item small,
-.ranking-item span:last-child {
-    color: #a2a1a1 !important;
+/* sidebar para escritorio */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 1.25rem;
+  background: #0b0b0b;
+  z-index: 1030;
+  overflow-y: auto;
 }
 
-.ranking-item {
-    background: transparent;
-    border: none;
-    padding: 12px;
-    transition: background 0.3s;
+/* contenido desplazado cuando el sidebar está visible */
+.main-content {
+  margin-left: 220px;
+  transition: margin 200ms ease;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
 }
 
-.ranking-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+/* sidebar para mobil oculto */
+.sidebar-mobile {
+  display: none;
 }
 
-.rank-number {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1db954; 
-    width: 30px;
-    text-align: center;
+/* buerguer para pantallas pequeñas */
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
 }
 
-.cancion-img {
-    width: 55px;
-    height: 55px;
-    object-fit: cover;
-    border-radius: 6px;
+/* lsita de canciones responsivas */
+#listaCanciones .list-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: .5rem;
 }
 
-.music-player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #181818;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #333;
-    z-index: 1000;
+/* canciones como tarjeta */
+.song-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-radius: 12px;
+  padding: .6rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0));
+  color: white;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: none;
+  transition: transform .12s ease, background .12s ease;
 }
 
-.player-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+/* imagen portada responsiva */
+.song-item img.cover-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.player-cover {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 6px;
+
+.song-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.03);
 }
 
-/* Mini cover */
-.cover-thumb {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 6px;
+/* reproductor fijo - estilo responsivo */
+#playerBar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  width: min(960px, calc(100% - 2rem));
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  padding: .6rem .9rem;
+  background: rgba(10,10,10,0.96);
+  border-radius: 12px;
+  z-index: 1200;
 }
 
-/* Barra de reproductor fija */
-.player-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #222;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    z-index: 1000;
+/* Player en pantallas muy pequeñas ocupa casi todo */
+@media (max-width: 576px) {
+  #playerBar {
+    width: calc(100% - 1.25rem);
+    left: 0.625rem;
+    transform: none;
+    right: 0.625rem;
+    bottom: 12px;
+  }
 }
 
-.player-bar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    margin-right: 10px;
+/* responsive sidebar y burger para mobil */
+@media (max-width: 991.98px) {
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; }
+  .hamburger-menu { display: block; }
+  .sidebar-mobile { display: block; }
 }
 
-.player-bar .song-info {
-    flex: 1;
+/* tipografía responsiva */
+.hero-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 
-.player-bar audio {
-    max-width: 300px;
+img.logo-image, img.cancion-img, img.cover-thumb {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Scrollbar personalizado para términos */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+.song-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
+.offcanvas-custom {
+  width: 280px;
 }
 
-/* Contenedor animado */
-.search-container {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 0;
-    opacity: 0;
-    transform: scale(0.8);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    transition: all 0.4s ease;
+.sidebar-mobile {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  height: 100%;
+  width: 280px;
+  background: #0b0b0b;
+  z-index: 1150;
+  transition: left .25s ease;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.sidebar-mobile.open { left: 0; }
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease;
+  z-index: 1140;
+}
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Search-Bar de navegacion por canciones*/
-/* Estado activo (cuando aparece en el centro) */
-.overlay.active .search-container {
-    width: 500px;
-    opacity: 1;
-    transform: scale(1);
+.song-list-column {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* Barra de búsqueda */
-.search-bar {
-    width: 100%;
-    padding: 12px 40px 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
-}
-
-/* Ícono dentro del contenedor */
-.search-icon {
-    position: absolute;
-    right: 35px;
-    top: 35px;
-    font-size: 18px;
-    color: #555;
-}
-
-/* Tabla de canciones */
-.songs-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.songs-table th, .songs-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+#listaCanciones .list-group {
+  width: 100%;
+  max-width: 440px;
+  padding-left: 0;
+  margin-left: 0;
 }
