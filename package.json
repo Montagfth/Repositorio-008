@@ -1,0 +1,20 @@
+{
+  "name": "repositorio-008",
+  "version": "1.0.0",
+  "description": "Archivo **README.md** para la documentación del proyecto.  \r ---\r ### Instrucciones para la Configuración del Proyecto:\r #### Instalación de Node.js:  \r Descargue e instale la versión: **v22.18.0 (LTS)** de **Node.js** desde el sitio oficial:  \r [![Node.js](https://img.shields.io/badge/Node.js-Download-green?logo=node.js)](https://nodejs.org/es/download)  \r ---\r #### Instalación de NPM:  \r Una vez instalado **Node.js**, `npm` *(Node Package Manager)* se instalará automáticamente como parte de la instalación de **Node.js**.  \r Si necesita verificar que `npm` se haya instalado correctamente, ejecute el siguiente comando en su terminal:  \r | Comando         | Descripción                          |\r |-----------------|--------------------------------------|\r | `node --version`| Versionado de Node.js                |\r | `npm --version` | Versionado del controlador npm       |\r ---\r #### Clonar el Repositorio:  \r Para obtener una copia del proyecto en su máquina local, ejecute el siguiente comando:  \r | Comando                                                     | Descripción                                      |\r |-------------------------------------------------------------|--------------------------------------------------|\r | `git clone https://github.com/tu-usuario/stale-saturn.git` | Clona el repositorio desde GitHub               |\r | `cd stale-saturn`                                           | Navega al directorio del proyecto clonado       |\r ---\r #### Instalación de Dependencias:  \r En la raíz de su proyecto, abra una terminal y ejecute el siguiente comando para instalar todas las dependencias necesarias especificadas en el archivo **package.json**:  \r | Comando        | Descripción                                      |\r |----------------|--------------------------------------------------|\r | `npm install`  | Instalar paquetes o módulos desde el repositorio |\r Este comando descargará todas las bibliotecas y dependencias requeridas para el correcto funcionamiento del proyecto.\r ---\r #### Cómo iniciar el proyecto:  \r Una vez que las dependencias estén instaladas, ejecute el siguiente comando para iniciar el servidor de desarrollo:  \r | Comando       | Descripción                                          |\r |---------------|------------------------------------------------------|\r | `npm run dev` | Ejecuta un script definido para iniciar la aplicación |\r El servidor debería arrancar correctamente, y podrá acceder a la aplicación en su navegador en:  \r  [http://localhost:4321](http://localhost:4321)  \r ---\r ### Acceso al Proyecto:\r Una vez que ejecute `npm run dev`, podrá acceder al proyecto en:\r - **URL Local:** [http://localhost:4321](http://localhost:4321)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Montagfth/Repositorio-008.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Montagfth/Repositorio-008/issues"
+  },
+  "homepage": "https://github.com/Montagfth/Repositorio-008#readme"
+}

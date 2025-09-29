@@ -776,3 +776,177 @@ body {
 .player-bar audio {
     max-width: 300px;
 }
+
+body, html {
+  height: 100%;
+}
+
+/* sidebar para escritorio */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 1.25rem;
+  background: #0b0b0b;
+  z-index: 1030;
+  overflow-y: auto;
+}
+
+/* contenido desplazado cuando el sidebar está visible */
+.main-content {
+  margin-left: 220px;
+  transition: margin 200ms ease;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+}
+
+/* sidebar para mobil oculto */
+.sidebar-mobile {
+  display: none;
+}
+
+/* buerguer para pantallas pequeñas */
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+/* lsita de canciones responsivas */
+#listaCanciones .list-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: .5rem;
+}
+
+/* canciones como tarjeta */
+.song-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-radius: 12px;
+  padding: .6rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0));
+  color: white;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: none;
+  transition: transform .12s ease, background .12s ease;
+}
+
+/* imagen portada responsiva */
+.song-item img.cover-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.song-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.03);
+}
+
+/* reproductor fijo - estilo responsivo */
+#playerBar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  width: min(960px, calc(100% - 2rem));
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  padding: .6rem .9rem;
+  background: rgba(10,10,10,0.96);
+  border-radius: 12px;
+  z-index: 1200;
+}
+
+/* Player en pantallas muy pequeñas ocupa casi todo */
+@media (max-width: 576px) {
+  #playerBar {
+    width: calc(100% - 1.25rem);
+    left: 0.625rem;
+    transform: none;
+    right: 0.625rem;
+    bottom: 12px;
+  }
+}
+
+/* responsive sidebar y burger para mobil */
+@media (max-width: 991.98px) {
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; }
+  .hamburger-menu { display: block; }
+  .sidebar-mobile { display: block; }
+}
+
+/* tipografía responsiva */
+.hero-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+img.logo-image, img.cancion-img, img.cover-thumb {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.song-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
+.offcanvas-custom {
+  width: 280px;
+}
+
+.sidebar-mobile {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  height: 100%;
+  width: 280px;
+  background: #0b0b0b;
+  z-index: 1150;
+  transition: left .25s ease;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.sidebar-mobile.open { left: 0; }
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease;
+  z-index: 1140;
+}
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.song-list-column {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#listaCanciones .list-group {
+  width: 100%;
+  max-width: 440px;
+  padding-left: 0;
+  margin-left: 0;
+}
