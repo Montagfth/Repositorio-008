@@ -59,12 +59,24 @@
 
         <!-- Funcionalidad: Boton de busqueda de canciones | 27/09/25 -->
         <!-- Inicio -->
-        <div class="search-container" id="searchContainer">
-            <input type="text" id="searchInput" placeholder="Buscar" class="buscar-cancion">
-            <table class="songs-table">
-                <tbody id="songsResults"></tbody>
-            </table>
+        <div class="sidebar-nav">
+            <div class="nav-section">
+                <a href="#" class="nav-item search-btn" id="searchBtn">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <span>Buscar</span>
+                </a>
+            </div>
         </div>
+        <!-- Overlay de búsqueda -->
+        <div id="overlay" class="overlay">
+            <div class="search-container">
+                <!-- Barra de búsqueda -->
+                <input type="text" id="searchInput" class="search-bar" placeholder="Buscar canciones...">
+                <!-- Resultados de canciones -->
+                <div id="searchResults" class="songs-table"></div>
+            </div>
+        </div>
+
         <!-- Fin -->
     </nav>
     <!-- Barra de busqueda de canciones | Estico (Experimental) -->

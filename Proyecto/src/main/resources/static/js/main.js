@@ -572,7 +572,7 @@ searchOverlay?.addEventListener("click", (e) => {
     }
 });
 
-// Función para crear un item de canción (mock/test)
+// Crear un item de canción (mock)
 function createSongItem(title, artist, cover, src) {
     const li = document.createElement("div");
     li.classList.add("song-item");
@@ -589,28 +589,28 @@ function createSongItem(title, artist, cover, src) {
         </div>
     `;
 
-    // acción de play
+    // acción de play (demo)
     li.querySelector(".play-btn").addEventListener("click", (e) => {
         e.stopPropagation();
-        playSong(title, artist, src, cover);
+        console.log(`▶ Reproducir: ${title} - ${artist}`);
     });
 
     return li;
 }
 
-// Filtrar canciones
+// Filtrar canciones (mock)
 searchInput?.addEventListener("input", function () {
     const query = this.value.toLowerCase().trim();
     searchResults.innerHTML = "";
 
     if (!query) return;
 
-    // 🔹 Aquí todavía usamos canciones mock.
-    // Luego se conecta a la API (Jamendo/iTunes).
     const cancionesMock = [
-        { title: "Despacito", artist: "Luis Fonsi", cover: "/images/despacito.jpg", src: "/audio/despacito.mp3" },
+        // { title: "Dakiti", artist: "Bad Bunny", cover: "/images/Dakiti.jpg", src: "/audio/Dakiti.mp3" },
+        { title: "Dakiti", artist: "Bad Bunny", cover: "/images/Dakiti.jpg", src: "/audio/Dakiti.mp3" },
         { title: "Shape of You", artist: "Ed Sheeran", cover: "/images/shape.jpg", src: "/audio/shape.mp3" },
         { title: "Vivir Mi Vida", artist: "Marc Anthony", cover: "/images/vivir.jpg", src: "/audio/vivir.mp3" },
+        // Añadir las canciones restantes aquí
     ];
 
     const filtradas = cancionesMock.filter(c =>
@@ -659,3 +659,28 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.innerWidth > 991.98) closeMobile();
     });
 });
+
+// // Referencias
+// const searchBtn = document.getElementById("searchBtn");
+// const overlay = document.getElementById("overlay");
+
+// // Mostrar al hacer click en el botón
+// searchBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     overlay.style.display = "flex";
+
+//     // delay para animación
+//     setTimeout(() => {
+//         overlay.classList.add("active");
+//     }, 50);
+// });
+
+// // Cerrar si se hace click fuera del contenedor
+// overlay.addEventListener("click", (e) => {
+//     if (e.target === overlay) {
+//         overlay.classList.remove("active");
+//         setTimeout(() => {
+//             overlay.style.display = "none";
+//         }, 400); // esperar animación
+//     }
+// });
