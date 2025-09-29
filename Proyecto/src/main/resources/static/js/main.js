@@ -539,69 +539,96 @@ window.PeepsApp = {
     restaurarInterfazOriginal
 };
 
-//Funcionalidad para barra de busqueda (Prototipo):
-// Referencias
+// =========================
+// Funcionalidad: Barra de búsqueda de canciones
+// =========================
+
+// Referencias principales
 const searchBtn = document.getElementById("searchBtn");
-const overlay = document.getElementById("overlay");
+const searchOverlay = document.getElementById("overlay");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
 
-// Mostrar al hacer click en el botón
-searchBtn.addEventListener("click", (e) => {
+// Mostrar el overlay
+searchBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    overlay.style.display = "flex";
+    searchOverlay.style.display = "flex";
 
-    // delay para animación
     setTimeout(() => {
-        overlay.classList.add("active");
+        searchOverlay.classList.add("active");
+        searchInput.focus();
     }, 50);
 });
 
-// Cerrar si se hace click fuera del contenedor
-overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-        overlay.classList.remove("active");
+// Cerrar overlay al hacer click fuera
+searchOverlay?.addEventListener("click", (e) => {
+    if (e.target === searchOverlay) {
+        searchOverlay.classList.remove("active");
         setTimeout(() => {
-            overlay.style.display = "none";
-        }, 400); // esperar animación
+            searchOverlay.style.display = "none";
+            searchInput.value = "";
+            searchResults.innerHTML = "";
+        }, 300);
     }
 });
-//Reproductor de música
-function playSong(title, artist, src, cover) {
-    const playerBar = document.getElementById("playerBar");
-    const audioPlayer = document.getElementById("audioPlayer");
-    const playerTitle = document.getElementById("playerTitle");
-    const playerArtist = document.getElementById("playerArtist");
-    const playerCover = document.getElementById("playerCover");
 
-    playerTitle.textContent = title;
-    playerArtist.textContent = artist;
-    playerCover.src = cover;
-    audioPlayer.src = src;
+// Función para crear un item de canción (mock/test)
+function createSongItem(title, artist, cover, src) {
+    const li = document.createElement("div");
+    li.classList.add("song-item");
 
-    playerBar.classList.remove("d-none");
-    audioPlayer.play();
+    li.innerHTML = `
+        <img src="${cover}" alt="${title}" class="cover-thumb">
+        <div class="song-info">
+            <h5>${title}</h5>
+            <small>${artist}</small>
+        </div>
+        <div class="song-actions">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+        </div>
+    `;
+
+    // acción de play
+    li.querySelector(".play-btn").addEventListener("click", (e) => {
+        e.stopPropagation();
+        playSong(title, artist, src, cover);
+    });
+
+    return li;
 }
 
-//Para la lista
-document.querySelectorAll('.song-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const title = item.getAttribute('data-title');
-        const artist = item.getAttribute('data-artist');
-        const src = item.getAttribute('data-src');
-        const cover = item.getAttribute('data-cover');
-        playSong(title, artist, src, cover);
+// Filtrar canciones
+searchInput?.addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (!query) return;
+
+    // 🔹 Aquí todavía usamos canciones mock.
+    // Luego se conecta a la API (Jamendo/iTunes).
+    const cancionesMock = [
+        { title: "Despacito", artist: "Luis Fonsi", cover: "/images/despacito.jpg", src: "/audio/despacito.mp3" },
+        { title: "Shape of You", artist: "Ed Sheeran", cover: "/images/shape.jpg", src: "/audio/shape.mp3" },
+        { title: "Vivir Mi Vida", artist: "Marc Anthony", cover: "/images/vivir.jpg", src: "/audio/vivir.mp3" },
+    ];
+
+    const filtradas = cancionesMock.filter(c =>
+        c.title.toLowerCase().includes(query) ||
+        c.artist.toLowerCase().includes(query)
+    );
+
+    if (filtradas.length === 0) {
+        searchResults.innerHTML = `<p style="text-align:center;color:#888;">No se encontraron canciones</p>`;
+        return;
+    }
+
+    filtradas.forEach(c => {
+        const item = createSongItem(c.title, c.artist, c.cover, c.src);
+        searchResults.appendChild(item);
     });
 });
 
-//Para el ranking
-document.querySelectorAll('.ranking-song').forEach(item => {
-    item.addEventListener('click', () => {
-        const title = item.getAttribute('data-title');
-        const artist = item.getAttribute('data-artist');
-        const src = item.getAttribute('data-src');
-        const cover = item.getAttribute('data-cover');
-        playSong(title, artist, src, cover);
-    });
-});
 
 // Simple toggle para sidebar móvil y overlay
 document.addEventListener('DOMContentLoaded', function () {
