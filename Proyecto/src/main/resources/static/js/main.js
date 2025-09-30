@@ -542,7 +542,7 @@ window.PeepsApp = {
 // =========================
 // Funcionalidad: Barra de búsqueda de canciones
 // =========================
-
+// Incio:
 // Referencias principales
 const searchBtn = document.getElementById("searchBtn");
 const searchOverlay = document.getElementById("overlay");
@@ -629,7 +629,6 @@ searchInput?.addEventListener("input", function () {
     });
 });
 
-
 // Simple toggle para sidebar móvil y overlay
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburgerMenu');
@@ -659,28 +658,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.innerWidth > 991.98) closeMobile();
     });
 });
-
-// // Referencias
-// const searchBtn = document.getElementById("searchBtn");
-// const overlay = document.getElementById("overlay");
-
-// // Mostrar al hacer click en el botón
-// searchBtn.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     overlay.style.display = "flex";
-
-//     // delay para animación
-//     setTimeout(() => {
-//         overlay.classList.add("active");
-//     }, 50);
-// });
-
-// // Cerrar si se hace click fuera del contenedor
-// overlay.addEventListener("click", (e) => {
-//     if (e.target === overlay) {
-//         overlay.classList.remove("active");
-//         setTimeout(() => {
-//             overlay.style.display = "none";
-//         }, 400); // esperar animación
-//     }
-// });
+// Fin
+// =========================
+// Funcionalidad: Barra de búsqueda de canciones
+// =========================
