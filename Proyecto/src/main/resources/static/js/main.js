@@ -548,6 +548,11 @@ const searchBtn = document.getElementById("searchBtn");
 const searchOverlay = document.getElementById("overlay");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
+// Nuevas adherencias:
+const resultsContainer = document.getElementById("songsResults");
+const audioPlayer = document.getElementById("audioPlayer");
+let currentSong = null;
+
 
 // Mostrar el overlay
 searchBtn?.addEventListener("click", (e) => {
@@ -589,10 +594,25 @@ function createSongItem(title, artist, cover, src) {
         </div>
     `;
 
-    // acción de play (demo)
-    li.querySelector(".play-btn").addEventListener("click", (e) => {
+    const playBtn = li.querySelector(".play-btn");
+
+    playBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        console.log(`▶ Reproducir: ${title} - ${artist}`);
+
+        if (currentSong === src && !audioPlayer.paused) {
+            // pausa
+            audioPlayer.pause();
+            playBtn.innerHTML = `<i class="fas fa-play"></i>`;
+        } else {
+            // reproducir
+            audioPlayer.src = src;
+            audioPlayer.play();
+            currentSong = src;
+
+            // resetear todos los botones a "play"
+            document.querySelectorAll(".play-btn").forEach(btn => btn.innerHTML = `<i class="fas fa-play"></i>`);
+            playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+        }
     });
 
     return li;
@@ -606,7 +626,7 @@ searchInput?.addEventListener("input", function () {
     if (!query) return;
 
     const cancionesMock = [
-        // { title: "Dakiti", artist: "Bad Bunny", cover: "/images/Dakiti.jpg", src: "/audio/Dakiti.mp3" },
+        // NOTA: Añadir las canciones previas aqui.
         { title: "Dakiti", artist: "Bad Bunny", cover: "/images/Dakiti.jpg", src: "/audio/Dakiti.mp3" },
         { title: "Shape of You", artist: "Ed Sheeran", cover: "/images/shape.jpg", src: "/audio/shape.mp3" },
         { title: "Vivir Mi Vida", artist: "Marc Anthony", cover: "/images/vivir.jpg", src: "/audio/vivir.mp3" },
@@ -623,9 +643,13 @@ searchInput?.addEventListener("input", function () {
         return;
     }
 
+    // Experimental | Funcional
     filtradas.forEach(c => {
         const item = createSongItem(c.title, c.artist, c.cover, c.src);
         searchResults.appendChild(item);
+
+        // animación suave
+        setTimeout(() => item.classList.add("show"), 50);
     });
 });
 

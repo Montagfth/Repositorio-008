@@ -71,12 +71,15 @@
         <div id="overlay" class="overlay">
             <div class="search-container">
                 <!-- Barra de búsqueda -->
-                <input type="text" id="searchInput" class="search-bar" placeholder="Buscar canciones...">
+                <input type="text" id="searchInput" class="search-bar" placeholder="Ingrese el nombre de la cancion">
+                <!-- Representacion de "Span of Text" -->
+                <i class="fas fa-magnifying-glass search-icon"></i>
                 <!-- Resultados de canciones -->
                 <div id="searchResults" class="songs-table"></div>
             </div>
         </div>
-
+        <!-- Audio oculto para reproducir -->
+        <audio id="audioPlayer"></audio>
         <!-- Fin -->
     </nav>
     <!-- Barra de busqueda de canciones | Estico (Experimental) -->

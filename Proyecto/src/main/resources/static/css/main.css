@@ -828,18 +828,30 @@ html {
 
 /* canciones como tarjeta */
 .song-item {
+    /* Modificacion en el contenedor */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    /* color: white; */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    /* box-shadow: none; */
-    transition: background 0.2s, transform 0.2;
-    cursor: pointer;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ================ */
+/* Nuevos estilos */
+/* ================ */
+.song-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.song-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .song-item:hover {
@@ -848,13 +860,42 @@ html {
 }
 
 .song-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    /* Modificaciones en el contened */
     flex: 1;
-    min-width: 0;
-    /* evita desbordes */
+    display: flex;
+    flex-direction: column;
 }
+
+.song-title {
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.song-artist {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.song-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.song-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.song-actions button:hover {
+    transform: scale(1.2);
+    color: var(--accent-color);
+}
+
+/* ========================= */
 
 /* imagen portada responsiva */
 .song-item img.cover-thumb {
@@ -908,9 +949,6 @@ html {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
-
-
-
 
 /* reproductor fijo - estilo responsivo */
 #playerBar {
@@ -1137,4 +1175,12 @@ img.cover-thumb {
 
 .songs-table tr:hover {
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* Recreacion de estilos y funcionalidades para las pistas musicales */
+.songs-results {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
