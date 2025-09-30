@@ -573,6 +573,13 @@ searchOverlay?.addEventListener("click", (e) => {
             searchOverlay.style.display = "none";
             searchInput.value = "";
             searchResults.innerHTML = "";
+            // 🔴 Detener canción si estaba sonando
+            // NOTA: Puede mejorarse con un fade de la cancion.
+            if (!audioPlayer.paused) {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0; // reiniciar
+            }
+            currentSong = null;
         }, 300);
     }
 });
