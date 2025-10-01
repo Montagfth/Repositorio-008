@@ -1,5 +1,5 @@
 # Proyecto "spotify" Peeps | Marcos de Desarrollo Web  
-###### Programador(es): Loyola Ismael · Figueroa Luis · Montañez Fabrizio · Quispe Angelo · Molina Brigitte  
+###### Programador(es): Loyola Ismael · Figueroa Luis · Montañez Fabrizio · Quispe Angelo  
 Archivo **README.md** para la documentación del proyecto.  
 ---
 ### Instrucciones para la Configuración del Proyecto:
