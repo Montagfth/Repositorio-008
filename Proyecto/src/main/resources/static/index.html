@@ -79,7 +79,7 @@
             </div>
         </div>
         <!-- Audio oculto para reproducir -->
-        <audio id="audioPlayer"></audio>
+        <audio id="audioPlayerSearch"></audio>
         <!-- Fin -->
     </nav>
     <!-- Barra de busqueda de canciones | Estico (Experimental) -->
@@ -212,11 +212,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 🎵 Lista de Canciones -->
-                    <div class="row mt-4" id="listaCanciones">
-                        <div class="col-lg-4 col-md-6 song-list-column">
-                            <h3 class="mb-3">Lista de Canciones</h3>
-                            <ul class="list-group">
+                </div>
+                <!-- 🎵 Lista de Canciones -->
+                <div class="row mt-4 d-none" id="listaCanciones">
+                    <div class="col-lg-4 col-md-6 song-list-column">
+                        <h3 class="mb-3">Lista de Canciones</h3>
+                        <ul class="list-group">
                                 <li class="list-group-item d-flex align-items-center song-item"
                                     data-title="Bohemian Rhapsody" data-artist="Queen"
                                     data-src="audio/Bohemian Rhapsody.mp3" data-cover="images/Bohemian Rhapsody.jpg">
@@ -396,18 +397,17 @@
                                     <img src="images/Ella y Yo.jpg" class="cover-thumb me-2">
                                     <span>Ella y Yo - Aventura ft. Don Omar</span>
                                 </li>
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
-                    <!-- Reproductor fijo -->
-                    <div id="playerBar" class="player-bar d-none">
-                        <img id="playerCover" src="" alt="cover">
-                        <div class="song-info">
-                            <h6 id="playerTitle"></h6>
-                            <small id="playerArtist"></small>
-                        </div>
-                        <audio id="audioPlayer" controls></audio>
+                </div>
+                <!-- Reproductor fijo -->
+                <div id="playerBar" class="player-bar d-none">
+                    <img id="playerCover" src="" alt="cover">
+                    <div class="song-info">
+                        <h6 id="playerTitle"></h6>
+                        <small id="playerArtist"></small>
                     </div>
+                    <audio id="audioPlayer" controls></audio>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-6 mb-4">

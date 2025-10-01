@@ -101,6 +101,8 @@ body {
 .nav-item:hover {
     color: var(--text-light);
     background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 .nav-item.active {
@@ -418,11 +420,6 @@ body {
 }
 
 /* Efectos de hover adicionales */
-.nav-item:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
 .card-custom .btn {
     transition: all 0.3s ease;
     margin: 0 auto;
@@ -824,6 +821,10 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
     padding: .5rem;
+    width: 100%;
+    max-width: 440px;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 /* canciones como tarjeta */
@@ -831,21 +832,24 @@ html {
     /* Modificacion en el contenedor */
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 10px;
+    gap: .75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none;
+    padding: .6rem;
+    background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0));
+    color: white;
     border-bottom: 1px solid #eee;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: transform .12s ease, background .12s ease;
+    cursor: pointer;
 }
+
 
 /* ================ */
 /* Nuevos estilos */
 /* ================ */
-.song-item.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .song-cover {
     width: 50px;
@@ -855,7 +859,7 @@ html {
 }
 
 .song-item:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
     transform: translateY(-4px);
 }
 
@@ -1063,13 +1067,6 @@ img.cover-thumb {
     align-items: flex-start;
 }
 
-#listaCanciones .list-group {
-    width: 100%;
-    max-width: 440px;
-    padding-left: 0;
-    margin-left: 0;
-}
-
 /* Contenedor del buscador */
 .buscar-cancion {
     display: flex;
@@ -1123,6 +1120,8 @@ img.cover-thumb {
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.4s ease;
+    overflow: hidden;
+    max-height: 80vh;
 }
 
 /* Estado activo (cuando aparece en el centro) */
@@ -1177,10 +1176,37 @@ img.cover-thumb {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Recreacion de estilos y funcionalidades para las pistas musicales */
+
 .songs-results {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
+    overflow-y: auto;         
+    width: 100%;
+    
+    max-height: 60vh;   
+    overflow-y: auto;    
+    padding-right: 6px;  
+}
+
+/* Scrollbar más estético (opcional) */
+.songs-results::-webkit-scrollbar {
+    width: 6px;
+}
+.songs-results::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+.songs-results::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+.songs-results::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body.modal-open {
+    overflow: hidden;
 }

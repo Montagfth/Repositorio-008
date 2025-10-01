@@ -227,9 +227,11 @@ async function handleRegistroSubmit() {
                     //ranking de canciones 
                     const welcomeSection = document.getElementById("welcomeSection");
                     const rankingSection = document.getElementById("rankingSection");
+                    const listaCanciones = document.getElementById("listaCanciones");
 
                     if (welcomeSection) welcomeSection.classList.add("d-none");
                     if (rankingSection) rankingSection.classList.remove("d-none");
+                    if (listaCanciones) listaCanciones.classList.remove("d-none");
                 }, 1000);
 
             } else {
@@ -295,9 +297,11 @@ async function handleLoginSubmit() {
                     //ranking de canciones 
                     const welcomeSection = document.getElementById("welcomeSection");
                     const rankingSection = document.getElementById("rankingSection");
+                    const listaCanciones = document.getElementById("listaCanciones");
 
                     if (welcomeSection) welcomeSection.classList.add("d-none");
                     if (rankingSection) rankingSection.classList.remove("d-none");
+                    if (listaCanciones) listaCanciones.classList.remove("d-none");
                 }, 1000);
 
             } else {
@@ -488,9 +492,11 @@ function cerrarSesion() {
         //ranking de canciones 
         const welcomeSection = document.getElementById("welcomeSection");
         const rankingSection = document.getElementById("rankingSection");
+        const listaCanciones = document.getElementById("listaCanciones");
 
         if (welcomeSection) welcomeSection.classList.remove("d-none");
         if (rankingSection) rankingSection.classList.add("d-none");
+        if (listaCanciones) listaCanciones.classList.add("d-none");
     }, 1000);
 }
 
@@ -538,6 +544,35 @@ window.PeepsApp = {
     actualizarInterfazUsuario,
     restaurarInterfazOriginal
 };
+//=========================
+
+//Reproductor de música
+function playSong(title, artist, src, cover) {
+    const playerBar = document.getElementById("playerBar");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const playerTitle = document.getElementById("playerTitle");
+    const playerArtist = document.getElementById("playerArtist");
+    const playerCover = document.getElementById("playerCover");
+
+    playerTitle.textContent = title;
+    playerArtist.textContent = artist;
+    playerCover.src = cover;
+    audioPlayer.src = src;
+
+    playerBar.classList.remove("d-none");
+    audioPlayer.play();
+}
+
+//Para la lista
+document.querySelectorAll('.song-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const title = item.getAttribute('data-title');
+        const artist = item.getAttribute('data-artist');
+        const src = item.getAttribute('data-src');
+        const cover = item.getAttribute('data-cover');
+        playSong(title, artist, src, cover);
+    });
+});
 
 // =========================
 // Funcionalidad: Barra de búsqueda de canciones
@@ -550,7 +585,7 @@ const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 // Nuevas adherencias:
 const resultsContainer = document.getElementById("songsResults");
-const audioPlayer = document.getElementById("audioPlayer");
+const audioPlayer = document.getElementById("audioPlayerSearch");
 let currentSong = null;
 
 
@@ -563,6 +598,7 @@ searchBtn?.addEventListener("click", (e) => {
         searchOverlay.classList.add("active");
         searchInput.focus();
     }, 50);
+    document.body.classList.add("modal-open");
 });
 
 // Cerrar overlay al hacer click fuera
@@ -580,6 +616,7 @@ searchOverlay?.addEventListener("click", (e) => {
                 audioPlayer.currentTime = 0; // reiniciar
             }
             currentSong = null;
+            document.body.classList.remove("modal-open");
         }, 300);
     }
 });
@@ -633,12 +670,10 @@ searchInput?.addEventListener("input", function () {
     if (!query) return;
 
     const cancionesMock = [
-        // Cancion 01
-        { title: "AM Remix", artist: "Nio Garcia x J Balvin x Bad Bunny", cover: "/images/AM Remix.jpg", src: "/audio/AM Remix.mp3" },
         // Cancion 02
-        { title: "Bohemian Rhapsody", artist: "Queen", cover: "/images/Bohemian Rhapsody.jpg", src: "/audio/Bohemian Rhapsody.mp3" },
+        { title: "AM Remix", artist: "Nio Garcia x J Balvin x Bad Bunny", cover: "/images/AM Remix.jpg", src: "/audio/AM Remix.mp3" },
         // Cancion 03
-        { title: "cabellos blancos", artist: "Carmencita Lara", cover: "/images/cabellos blancos.jpg", src: "/audio/cabellos blancos.mp3" },
+        { title: "Bohemian Rhapsody", artist: "Queen", cover: "/images/Bohemian Rhapsody.jpg", src: "/audio/Bohemian Rhapsody.mp3" },
         // Cancion 04
         { title: "cabellos blancos", artist: "Carmencita Lara", cover: "/images/cabellos blancos.jpg", src: "/audio/cabellos blancos.mp3" },
         // Cancion 05
@@ -664,11 +699,11 @@ searchInput?.addEventListener("input", function () {
         // Cancion 15
         { title: "La Botella", artist: "Justin Quiles & Maluma", cover: "/images/La Botella.jpg", src: "/audio/La Botella.mp3" },
         // Cancion 16
-        { title: "La Cancion", artist: "Bad Bunny & J Balvin", cover: "/images/La Cancion.jpg", src: "/audio/La Cancion.mp3" },
+        { title: "La Cancion", artist: "Bad Bunny & J Balvin", cover: "images/La Canción.jpg", src: "/audio/La Canción.mp3" },
         // Cancion 17
         { title: "Lo Pasado, Pasado", artist: "José José", cover: "/images/Lo Pasado, Pasado.jpg", src: "/audio/Lo Pasado, Pasado.mp3" },
         // Cancion 18
-        { title: "Me Porto Bonito", artist: "José José", cover: "/images/Lo Pasado, Pasado.jpg", src: "/audio/Lo Pasado, Pasado.mp3" },
+        { title: "Me Porto Bonito", artist: "Bad Bunny", cover: "images/Me Porto Bonito.jpg", src: "audio/Me Porto Bonito.mp3" },
         // Cancion 19
         { title: "Me Rehúso", artist: "Danny Ocean", cover: "/images/Me Rehúso.jpg", src: "/audio/Me Rehúso.mp3" },
         // Cancion 20
