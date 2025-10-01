@@ -633,11 +633,70 @@ searchInput?.addEventListener("input", function () {
     if (!query) return;
 
     const cancionesMock = [
-        // NOTA: Añadir las canciones previas aqui.
+        // Cancion 01
+        { title: "AM Remix", artist: "Nio Garcia x J Balvin x Bad Bunny", cover: "/images/AM Remix.jpg", src: "/audio/AM Remix.mp3" },
+        // Cancion 02
+        { title: "Bohemian Rhapsody", artist: "Queen", cover: "/images/Bohemian Rhapsody.jpg", src: "/audio/Bohemian Rhapsody.mp3" },
+        // Cancion 03
+        { title: "cabellos blancos", artist: "Carmencita Lara", cover: "/images/cabellos blancos.jpg", src: "/audio/cabellos blancos.mp3" },
+        // Cancion 04
+        { title: "cabellos blancos", artist: "Carmencita Lara", cover: "/images/cabellos blancos.jpg", src: "/audio/cabellos blancos.mp3" },
+        // Cancion 05
+        { title: "carta al cielo", artist: "Lucha Reyes", cover: "/images/carta al cielo.jpg", src: "/audio/carta al cielo.mp3" },
+        // Cancion 06
+        { title: "Chillax", artist: "Farruko", cover: "/images/Chillax.jpg", src: "/audio/Chillax.mp3" },
+        // Cancion 07
+        { title: "Con Altura", artist: "J Balvin x Rosalía", cover: "/images/Con Altura.jpg", src: "/audio/Con Altura.mp3" },
+        // Cancion 08
         { title: "Dakiti", artist: "Bad Bunny", cover: "/images/Dakiti.jpg", src: "/audio/Dakiti.mp3" },
-        { title: "Shape of You", artist: "Ed Sheeran", cover: "/images/shape.jpg", src: "/audio/shape.mp3" },
-        { title: "Vivir Mi Vida", artist: "Marc Anthony", cover: "/images/vivir.jpg", src: "/audio/vivir.mp3" },
-        // Añadir las canciones restantes aquí
+        // Cancion 09
+        { title: "Despechá", artist: "Rosalia", cover: "/images/Despechá.jpg", src: "/audio/Despechá.mp3" },
+        // Cancion 10
+        { title: "DtMF", artist: "Bad Bunny", cover: "/images/DtMF.jpg", src: "/audio/DtMF.mp3" },
+        // Cancion 11
+        { title: "Ella y Yo", artist: "Aventura (Ft. Don Omar)", cover: "/images/Ella y Yo.jpg", src: "/audio/Ella y Yo.mp3" },
+        // Cancion 12
+        { title: "Felices los 4", artist: "Maluma", cover: "/images/Felices los 4.jpg", src: "/audio/Felices los 4.mp3" },
+        // Cancion 13
+        { title: "Hawái", artist: "Maluma", cover: "/images/Hawái.jpg", src: "/audio/Hawái.mp3" },
+        // Cancion 14
+        { title: "La Alergia", artist: "Donny Caballero", cover: "/images/La Alergia.jpg", src: "/audio/La Alergia.mp3" },
+        // Cancion 15
+        { title: "La Botella", artist: "Justin Quiles & Maluma", cover: "/images/La Botella.jpg", src: "/audio/La Botella.mp3" },
+        // Cancion 16
+        { title: "La Cancion", artist: "Bad Bunny & J Balvin", cover: "/images/La Cancion.jpg", src: "/audio/La Cancion.mp3" },
+        // Cancion 17
+        { title: "Lo Pasado, Pasado", artist: "José José", cover: "/images/Lo Pasado, Pasado.jpg", src: "/audio/Lo Pasado, Pasado.mp3" },
+        // Cancion 18
+        { title: "Me Porto Bonito", artist: "José José", cover: "/images/Lo Pasado, Pasado.jpg", src: "/audio/Lo Pasado, Pasado.mp3" },
+        // Cancion 19
+        { title: "Me Rehúso", artist: "Danny Ocean", cover: "/images/Me Rehúso.jpg", src: "/audio/Me Rehúso.mp3" },
+        // Cancion 20
+        { title: "Monotonía", artist: "Shakira", cover: "/images/Monotonía.jpg", src: "/audio/Monotonía.mp3" },
+        // Cancion 21
+        { title: "Ojitos Lindos", artist: "Bad Bunny & Bomba Estéreo", cover: "/images/Ojitos Lindos.jpg", src: "/audio/Ojitos Lindos.mp3" },
+        // Cancion 22
+        { title: "Otro Trago", artist: "Darell & Sech", cover: "/images/Otro Trago.jpg", src: "/audio/Otro Trago.mp3" },
+        // Cancion 23
+        { title: "Pa Mi (Remix)", artist: "Alex, Dimelo Flow & Rafa Pabón", cover: "/images/Pa Mi (Remix).jpg", src: "/audio/Pa Mi (Remix).mp3" },
+        // Cancion 24
+        { title: "Pareja del Año", artist: "Myke Towers & Sebastián Yatra", cover: "/images/Pareja del Año.jpg", src: "/audio/Pareja del Año.mp3" },
+        // Cancion 25
+        { title: "Qué Más Pues", artist: "J Balvin & Maria Becerra", cover: "/images/Qué Más Pues.jpg", src: "/audio/Qué Más Pues.mp3" },
+        // Cancion 26
+        { title: "Salió el Sol", artist: "Don Omar", cover: "/images/Salió el Sol.jpg", src: "/audio/Salió el Sol.mp3" },
+        // Cancion 27
+        { title: "Sunset", artist: "Farruko", cover: "/images/Sunset.jpg", src: "/audio/Sunset.mp3" },
+        // Cancion 28
+        { title: "Tacones Rojos", artist: "Sebastián Yatra", cover: "/images/Tacones Rojos.jpg", src: "/audio/Tacones Rojos.mp3" },
+        // Cancion 29
+        { title: "Tal Vez", artist: "Paulo Londra", cover: "/images/Tal Vez.jpg", src: "/audio/Tal Vez.mp3" },
+        // Cancion 30
+        { title: "Tití Me Preguntó", artist: "Bad Bunny", cover: "/images/Tití Me Preguntó.jpg", src: "/audio/Tití Me Preguntó.mp3" },
+        // Cancion 31
+        { title: "Todo De Ti", artist: "Rauw Alejandro", cover: "/images/Todo De Ti.jpg", src: "/audio/Todo De Ti.mp3" },
+        // Cancion 32
+        { title: "Volví", artist: "Aventura & Bad Bunny", cover: "/images/Volví.jpg", src: "/audio/Volví.mp3" },
     ];
 
     const filtradas = cancionesMock.filter(c =>
