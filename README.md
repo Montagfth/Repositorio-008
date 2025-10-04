@@ -41,10 +41,7 @@ Una vez que las dependencias estén instaladas, ejecute el siguiente comando par
 |---------------|------------------------------------------------------|
 | `npm run dev` | Ejecuta un script definido para iniciar la aplicación |
 
-### Ejecucion del servidor:
-El servidor debería arrancar correctamente, y podrá acceder a la aplicación en su navegador en:
+### Acceso del Servidor/Proyecto:
+Una vez que ejecute `npm run dev`, el servidor debería arrancar correctamente, y podrá acceder a la aplicación en su navegador en las siguientes **URL Local**:
 
- `[http://localhost:4321] | (http://localhost:4321)`  
-
-### Acceso al Proyecto:
-Una vez que ejecute `npm run dev`, podrá acceder al proyecto en la URL local: `[http://localhost:4321](http://localhost:4321)`
+ `http://localhost:4321 | http://localhost:8080`  
