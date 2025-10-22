@@ -9,7 +9,7 @@ import java.util.*;
 @CrossOrigin(origins = "*")
 public class LoginController {
     
-   
+
     private List<Map<String, Object>> usuarios = new ArrayList<>();
     private Long nextId = 1L;
     
@@ -31,7 +31,7 @@ public class LoginController {
     public ResponseEntity<Map<String, Object>> registrarUsuario(@RequestBody Map<String, String> datos) {
         Map<String, Object> respuesta = new HashMap<>();
         
- 
+
         if (datos.get("nombre") == null || datos.get("email") == null || datos.get("password") == null) {
             respuesta.put("error", "Faltan datos requeridos");
             return ResponseEntity.badRequest().body(respuesta);

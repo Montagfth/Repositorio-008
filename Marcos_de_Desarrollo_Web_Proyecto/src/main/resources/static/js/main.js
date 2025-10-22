@@ -559,19 +559,9 @@ window.PeepsApp = {
 
 //Reproductor de música
 function playSong(title, artist, src, cover) {
-    const playerBar = document.getElementById("playerBar");
-    const audioPlayer = document.getElementById("audioPlayer");
-    const playerTitle = document.getElementById("playerTitle");
-    const playerArtist = document.getElementById("playerArtist");
-    const playerCover = document.getElementById("playerCover");
+    const url = `/music/reproductor?titulo=${encodeURIComponent(title)}&artista=${encodeURIComponent(artist)}&src=${encodeURIComponent(src)}&cover=${encodeURIComponent(cover)}`;
 
-    playerTitle.textContent = title;
-    playerArtist.textContent = artist;
-    playerCover.src = cover;
-    audioPlayer.src = src;
-
-    playerBar.classList.remove("d-none");
-    audioPlayer.play();
+    window.location.href = url;
 }
 
 //Para la lista
